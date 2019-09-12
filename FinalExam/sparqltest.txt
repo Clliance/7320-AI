@@ -1,0 +1,9 @@
+prefix weichin: <http://s2.smu.edu/~47793737/#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+prefix schema: <http://schema.org> 
+
+SELECT ?y
+WHERE {
+?x rdf:type schema:Person.
+?x schema:givenName ?y.
+}

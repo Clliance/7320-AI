@@ -1,0 +1,7 @@
+prefix CC: <http://www.smu.edu/~47781790/#>
+prefix schema: <http://schema.org>
+
+SELECT ?x
+WHERE{
+    CC:Jimmy schema:affiliation ?x
+}

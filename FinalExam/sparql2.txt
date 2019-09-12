@@ -1,0 +1,8 @@
+prefix CC: <http://www.smu.edu/~47781790/#>
+prefix schema: <http://schema.org>
+
+SELECT ?name ?location
+WHERE{
+    ?name a schema:Organization.
+    ?name schema:location ?location.
+}

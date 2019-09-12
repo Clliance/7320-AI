@@ -1,0 +1,22 @@
+@prefix weichin: <http://s2.smu.edu/~47793737/#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org> .
+
+#use own namespace to describe Jimmy
+weichin:Jimmy rdf:type schema:Person.
+weichin:Jimmy schema:givenName "Jimmy".
+weichin:Jimmy schema:affiliation weichin:Google.
+weichin:Jimmy schema:knows weichin:Marla.
+
+#descirbe google
+weichin:Google rdf:type schema:Organization.
+weichin:Google schema:name "Google".
+weichin:Google schema:location weichin:California.
+
+#describe California
+weichin:California rdf:type schema:Place.
+weichin:California schema:name "California".
+
+#describe Marla
+weichin:Marla rdf:type schema:Person.
+weichin:Marla schema:givenName "Marla".

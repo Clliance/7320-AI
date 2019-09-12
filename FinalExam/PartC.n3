@@ -1,0 +1,19 @@
+@prefix CC: <http://www.smu.edu/~47781790/#>.
+@prefix schema: <http://schema.org>.
+
+CC:Jimmy a schema:Person.
+CC:Jimmy schema:givenName "Jimmy".
+
+CC:Google a schema:Organization.
+CC:Google schema:name "Google".
+
+CC:California a schema:Place.
+
+CC:Google schema:location CC:California.
+
+CC:Jimmy schema:affiliation CC:Google.
+
+CC:Marla a schema:Person.
+CC:Marla schema:givenName "Marla".
+
+CC:Jimmy schema:knows CC:Marla.

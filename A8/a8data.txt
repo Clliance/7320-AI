@@ -1,0 +1,36 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org> .
+@prefix db: <http://dbpedia.org/page/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+#Rollo
+_:Rollo a schema:Person.
+_:Rollo foaf:name "Rollo".
+_:Rollo db:relation db:Fellow.
+_:Rollo db:phoneNumber "214-555-6666".
+_:Rollo foaf:mbox "rollo@world.org".
+
+#Zippy
+_:Zippy a schema:Person.
+_:Zippy foaf:name "Zippy".
+_:Zippy db:relation db:Fellow.
+_:Zippy schema:homeLocation _:Austin.
+_:Austin db:city db:Austin.
+_:Austin db:state db:Texas.
+
+#Event 
+_:RZF a schema:Event.
+_:RZF foaf:name "RolloZipFest".
+_:RZF schema:Schedule "2020-06-20T19:00"^^xsd:dateTime.
+_:RZF schema:location db:Iceland.
+_:RZF schema:organizer _:Rollo.
+_:RZF schema:performer _:Zippy.
+_:RZF schema:performer _:SD.
+
+#SnoopDogg
+_:SD a schema:Person.
+_:SD rdf:type foaf:Person.
+_:SD foaf:name db:Snoop_Dogg.
+

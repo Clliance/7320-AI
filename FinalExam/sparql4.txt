@@ -1,0 +1,9 @@
+prefix CC: <http://www.smu.edu/~47781790/#>
+prefix schema: <http://schema.org>
+
+SELECT ?knowsMarla
+WHERE{
+    CC:Jimmy schema:knows ?x.
+    BIND (exists{?x schema:givenName "Marla"} AS ?existsMarla)
+    BIND (IF(?existsMarla, "yes", "no") AS ?knowsMarla)
+}
