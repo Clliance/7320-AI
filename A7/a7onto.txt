@@ -1,0 +1,68 @@
+@prefix : <http://www.codesupreme.com/#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org> .
+@prefix db: <http://dbpedia.org/page/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+foaf:knows  rdf:type owl:SymmetricProperty.
+foaf:knows rdfs:domain foaf:Person.
+foaf:knows rdfs:range foaf:Person.
+foaf:gender rdfs:domain foaf:Person.
+
+db:Wine rdfs:subClassOf db:Alcoholic_drink.
+db:Beer rdfs:subClassOf db:Alcoholic_drink.
+db:Tequila rdfs:subClassOf db:Alcoholic_drink.
+
+:Zonker owl:sameAs :BigZ.
+:BigZ owl:sameAs :Zonker.
+
+db:Sister rdfs:subPropertyOf db:Sibling.
+db:Sister owl:inverseOf db:Brother.
+db:Brother rdf:type owl:TransitiveProperty.
+db:Sibling rdf:type owl:SymmetricProperty.
+
+schema:City rdfs:subClassOf schema:Place.
+schema:Place rdfs:subClassOf schema:Thing.
+
+schema:Person rdfs:subClassOf schema:Thing. 
+
+schema:jobTitle rdfs:subClassOf schema:Property.
+schema:Property rdfs:subClassOf schema:Thing.
+
+schema:InternetCafe rdfs:subClassOf schema:LocalBusiness.
+schema:LocalBusiness rdfs:subClassOf schema:Place.
+schema:workLocation rdfs:subClassOf schema:location.
+schema:location rdfs:subClassOf schema:Property.
+
+schema:HairSalon rdfs:subClassOf schema:HealthAndBeautyBusiness.
+schema:HealthAndBeautyBusiness rdfs:subClassOf schema:LocalBusiness.
+schema:BowlingAlley rdfs:subClassOf schema:SportsActivityLocation.
+schema:SportsActivityLocation rdfs:subClassOf schema:LocalBusiness.
+
+schema:Casino rdfs:subClassOf schema:EntertainmentBusiness.
+schema:EntertainmentBusiness rdfs:subClassOf schema:LocalBusiness.
+
+schema:DrinkAction rdfs:subClassOf schema:ConsumeAction.
+schema:ConsumeAction rdfs:subClassOf schema:Action.
+schema:Action rdfs:subClassOf schema:Thing.
+
+schema:CreateAction rdfs:subClassOf schema:Action. 
+
+schema:game rdfs:subClassOf schema:Property.
+
+schema:SportsTeam rdfs:subClassOf schema:SportsOrganization.
+schema:SportsOrganization rdfs:subClassOf schema:Organization.
+schema:Organization rdfs:subClassOf schema:Thing. 
+
+schema:workLocation owl:inverseOf db:Recruitment.
+
+:creates rdfs:subClassOf schema:CreateAction.
+
+:Dallas rdfs:subClassOf schema:City.
+:Boston rdfs:subClassOf schema:City.
+:Boston_Celtics rdfs:subClassOf schema:SportsTeam.
+:Dallas_Mavericks rdfs:subClassOf schema:SportsTeam.
+
+

@@ -1,0 +1,11 @@
+@prefix : <http://www.codesupreme.com/#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org> .
+@prefix db: <http://dbpedia.org/page/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+[rule1: (?x rdf:type :Person)  ->  (?x rdf:type :Human)]
+[rule2: (?x :livesIn :Dallas)  ->  (?x :love :Texas)]
+[rule3: (?x schema:DrinkAction db:Wine)  ->  (?x rdf:type db:Expert)]

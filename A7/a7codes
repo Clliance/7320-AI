@@ -1,0 +1,201 @@
+##Student Name: Chenming Cui
+##Student ID: 47781790
+
+###a7data.txt
+
+	@prefix : <http://www.smu.edu/7320/#>.
+	@prefix foaf: <http://xmlns.com/foaf/0.1/#>.
+	@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+	@prefix schema: <http://schema.org> .
+	@prefix db: <http://dbpedia.org/page/>.
+	
+	:Zippy a schema:Person.
+	:Zippy foaf:gender :male.
+	:Zippy :livesIn :Boston.
+	:Zippy schema:LikeAction :Boston_Celtics.
+	:Zippy schema:DrinkAction db:Beer.
+	:Zippy schema:DrinkAction db:Tequila.
+	
+	:Rollo a schema:Person.
+	:Rollo foaf:gender :male.
+	:Rollo :livesIn :Dallas.
+	:Rollo schema:LikeAction :Dallas_Mavericks.
+	:Rollo db:hairColor :brown.
+	:Rollo schema:DrinkAction db:Wine.
+	:Rollo schema:DrinkAction db:Tequila.
+	:Rollo foaf:knows :Marla .
+	:Rollo foaf:knows :Zippy .
+	:Rollo foaf:knows :Zonker .
+	:Rollo schema:workLocation _:Ic.
+	:Rollo schema:jobTitle :Manager.
+	_:Ic a schema:InternetCafe.
+	_:Ic schema:location "Skillman Avenue".
+	
+	:Marla a schema:Person.
+	:Marla foaf:gender :female.
+	:Marla :livesIn :Dallas.
+	:Marla db:hairColor :red.
+	:Marla schema:DrinkAction db:Coffee .
+	:Marla schema:workLocation _:ctu.
+	:Marla schema:jobTitle :Stylist.
+	_:ctu a schema:HairSalon.
+	_:ctu foaf:name "Cut Me Up".
+	_:ctu schema:location :Dallas.
+	
+	:Ralph a schema:Person.
+	:Ralph foaf:gender :male.
+	:Ralph db:Sister :Marla .
+	:Ralph schema:workLocation _:bb.
+	:Ralph schema:jobTitle :Shoe_Sizer.
+	_:bb a schema:BowlingAlley.
+	_:bb foaf:name "Big Bowl".
+	
+	:BigZ a schema:Person .
+	:BigZ schema:DrinkAction db:Tea.
+	:BigZ schema:DrinkAction db:Tequila.
+	
+	:Zonker a schema:Person. 
+	:Zonker foaf:gender :male.
+	:Zonker foaf:knows :Rollo .
+	:Zonker db:Sister :Marla.
+	:Zonker :creates _:HHCYJ.
+	_:HHCYJ a schema:game.
+	_:HHCYJ foaf:name "How High Can You Jump".
+	:Zonker schema:workLocation _:bg.
+	:Zonker schema:jobTitle :Dealer.
+	_:bg a schema:Casino.
+	_:bg foaf:name "Big Teepee".
+	_:bg schema:location :Dallas.
+
+###a7onto.txt
+
+	@prefix : <http://www.codesupreme.com/#>.
+	@prefix foaf: <http://xmlns.com/foaf/0.1/#>.
+	@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+	@prefix schema: <http://schema.org> .
+	@prefix db: <http://dbpedia.org/page/>.
+	@prefix owl: <http://www.w3.org/2002/07/owl#>.
+	
+	foaf:knows  rdf:type owl:SymmetricProperty.
+			
+	schema:workLocation owl:inverseOf db:Recruitment.
+	
+	db:Sister rdfs:subPropertyOf db:Sibling.
+	db:Sister owl:inverseOf db:Brother.
+	db:Brother rdf:type owl:TransitiveProperty.
+	db:Sibling rdf:type owl:SymmetricProperty.
+
+	db:Wine rdfs:subClassOf db:Alcoholic_drink.
+	db:Beer rdfs:subClassOf db:Alcoholic_drink.
+	db:Tequila rdfs:subClassOf db:Alcoholic_drink.
+	
+	foaf:knows rdfs:domain foaf:Person.
+	foaf:knows rdfs:range foaf:Person.
+	
+	foaf:gender rdfs:domain foaf:Person.
+	
+	:Zonker owl:sameAs :BigZ.
+	:BigZ owl:sameAs :Zonker.
+	
+	schema:City rdfs:subClassOf schema:Place.
+	schema:Place rdfs:subClassOf schema:Thing.
+	
+	schema:Person rdfs:subClassOf schema:Thing. 
+	
+	schema:jobTitle rdfs:subClassOf schema:Property.
+	schema:Property rdfs:subClassOf schema:Thing.
+	
+	schema:InternetCafe rdfs:subClassOf schema:LocalBusiness.
+	schema:LocalBusiness rdfs:subClassOf schema:Place.
+	schema:workLocation rdfs:subClassOf schema:location.
+	schema:location rdfs:subClassOf schema:Property.
+	
+	schema:HairSalon rdfs:subClassOf schema:HealthAndBeautyBusiness.
+	schema:HealthAndBeautyBusiness rdfs:subClassOf schema:LocalBusiness.
+	schema:BowlingAlley rdfs:subClassOf schema:SportsActivityLocation.
+	schema:SportsActivityLocation rdfs:subClassOf schema:LocalBusiness.
+	
+	schema:Casino rdfs:subClassOf schema:EntertainmentBusiness.
+	schema:EntertainmentBusiness rdfs:subClassOf schema:LocalBusiness.
+	
+	schema:DrinkAction rdfs:subClassOf schema:ConsumeAction.
+	schema:ConsumeAction rdfs:subClassOf schema:Action.
+	schema:Action rdfs:subClassOf schema:Thing.
+	
+	schema:CreateAction rdfs:subClassOf schema:Action. 
+	
+	schema:game rdfs:subClassOf schema:Property.
+	
+	schema:SportsTeam rdfs:subClassOf schema:SportsOrganization.
+	schema:SportsOrganization rdfs:subClassOf schema:Organization.
+	schema:Organization rdfs:subClassOf schema:Thing. 
+
+	:creates rdfs:subClassOf schema:CreateAction.
+	
+	:Dallas rdfs:subClassOf schema:City.
+	:Boston rdfs:subClassOf schema:City.
+	:Boston_Celtics rdfs:subClassOf schema:SportsTeam.
+	:Dallas_Mavericks rdfs:subClassOf schema:SportsTeam.
+	
+###a7rules.txt
+
+	@prefix : <http://www.codesupreme.com/#>.
+	@prefix foaf: <http://xmlns.com/foaf/0.1/#>.
+	@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+	@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+	@prefix schema: <http://schema.org> .
+	@prefix db: <http://dbpedia.org/page/>.
+	@prefix owl: <http://www.w3.org/2002/07/owl#>.
+	
+	[rule1: (?x rdf:type :Person)  ->  (?x rdf:type :Human)]
+	[rule2: (?x :livesIn :Dallas)  ->  (?x :love :Texas)]
+	[rule3: (?x schema:DrinkAction db:Wine)  ->  (?x rdf:type db:Expert)]
+
+###a7sparql1.txt
+
+	prefix : <http://www.smu.edu/7320/#>
+	prefix foaf: <http://xmlns.com/foaf/0.1/#>
+	prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+	prefix schema: <http://schema.org> 
+	prefix db: <http://dbpedia.org/page/>
+	prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+	prefix owl: <http://www.w3.org/2002/07/owl#>
+	
+	SELECT ?x
+	WHERE {
+		:Marla db:Sibling ?x.
+	}
+
+###a7sparql2.txt
+
+	prefix : <http://www.smu.edu/7320/#>
+	prefix foaf: <http://xmlns.com/foaf/0.1/#>
+	prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+	prefix schema: <http://schema.org> 
+	prefix db: <http://dbpedia.org/page/>
+	prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+	
+	SELECT ?x
+	WHERE {
+		?x db:Sister :Marla.
+		?x schema:workLocation [a schema:Casino].
+	}
+
+###a7sparql3.txt
+
+	prefix : <http://www.smu.edu/7320/#>
+	prefix foaf: <http://xmlns.com/foaf/0.1/#>
+	prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+	prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+	prefix schema: <http://schema.org> 
+	prefix db: <http://dbpedia.org/page/>
+	prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+	
+	SELECT ?x
+	WHERE {
+		?x rdf:type db:Expert.
+	}	
