@@ -1,0 +1,40 @@
+@prefix : <http://www.smu.edu/7320/#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/#>.
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix movie: <http://s2.smu.edu/~chenmingc/n3file/movie> .
+@prefix song: <http://s2.smu.edu/~chenmingc/n3file/song> .
+@prefix album: <http://s2.smu.edu/~chenmingc/n3file/album> .
+@prefix singer: <http://s2.smu.edu/~chenmingc/n3file/singer> .
+@prefix actor: <http://s2.smu.edu/~chenmingc/n3file/actor> .
+
+:chenmingc rdf:type  foaf:Person .
+:chenmingc foaf:name "Chenming Cui" .
+:chenmingc foaf:age "22" .
+:chenmingc foaf:homepage "http://s2.smu.edu/~chenmingc/" .
+:chenmingc foaf:familyName "Cui" .
+:chenmingc foaf:givenName "Chenming" .
+:chenmingc foaf:nick "JC" .
+:chenmingc foaf:interest "Basketball" .
+:chenmingc foaf:pastProject "GeneData" .
+:chenmingc foaf:mbox "chenmingc@smu.edu" . 
+
+#Use my favorite rock band AC/DC as an example
+#Almost all the songs in the movie Iron Man 2 were from AC/DC
+singer:ACDC foaf:name "ACDC" .
+singer:ACDC singer:type "Band" .
+singer:ACDC song:name "Shoot to Thrill" .
+singer:ACDC song:length "5:18" .
+singer:ACDC song:type "rock" .
+singer:ACDC album:name "Iron Man 2" .
+
+#How many songs were selected in Iron Man 2
+album:ironMan2 album:numOfSongs "15" .
+
+#Some information about the movie Iron Man 2
+movie:ironMan2 album:name "Iron Man 2" .
+movie:ironMan2 actor:name "Robert John Downey Jr." .
+movie:ironMan2 actor:sex "male" .
+movie:ironMan2 movie:length "124min" .
+
+

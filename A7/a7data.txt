@@ -1,0 +1,64 @@
+@prefix : <http://www.smu.edu/7320/#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org> .
+@prefix db: <http://dbpedia.org/page/>.
+
+:Zippy a schema:Person.
+:Zippy foaf:gender :male.
+:Zippy :livesIn :Boston.
+:Zippy schema:LikeAction :Boston_Celtics.
+:Zippy schema:DrinkAction db:Beer.
+:Zippy schema:DrinkAction db:Tequila.
+
+:Rollo a schema:Person.
+:Rollo foaf:gender :male.
+:Rollo :livesIn :Dallas.
+:Rollo schema:LikeAction :Dallas_Mavericks.
+:Rollo db:hairColor :brown.
+:Rollo schema:DrinkAction db:Wine.
+:Rollo schema:DrinkAction db:Tequila.
+:Rollo foaf:knows :Marla .
+:Rollo foaf:knows :Zippy .
+:Rollo foaf:knows :Zonker .
+:Rollo schema:jobTitle :Manager.
+_:Ic a schema:InternetCafe.
+:Rollo schema:workLocation _:Ic.
+_:Ic schema:location "Skillman Avenue".
+
+:Marla a schema:Person.
+:Marla foaf:gender :female.
+:Marla :livesIn :Dallas.
+:Marla db:hairColor :red.
+:Marla schema:DrinkAction db:Coffee .
+:Marla schema:jobTitle :Stylist.
+_:ctu a schema:HairSalon.
+_:ctu foaf:name "Cut Me Up".
+_:ctu schema:location :Dallas.
+:Marla schema:workLocation _:ctu.
+
+:Ralph a schema:Person.
+:Ralph foaf:gender :male.
+:Ralph db:Sister :Marla .
+:Ralph schema:jobTitle :Shoe_Sizer.
+_:bb a schema:BowlingAlley.
+_:bb foaf:name "Big Bowl".
+:Ralph schema:workLocation _:bb.
+
+:BigZ a schema:Person .
+:BigZ schema:DrinkAction db:Tea.
+:BigZ schema:DrinkAction db:Tequila.
+
+:Zonker a schema:Person. 
+:Zonker foaf:gender :male.
+:Zonker foaf:knows :Rollo .
+:Zonker db:Sister :Marla.
+:Zonker :creates _:HHCYJ.
+_:HHCYJ a schema:game.
+_:HHCYJ foaf:name "How High Can You Jump".
+_:bg a schema:Casino.
+_:bg foaf:name "Big Teepee".
+_:bg schema:location :Dallas.
+:Zonker schema:workLocation _:bg.
+:Zonker schema:jobTitle :Dealer.
